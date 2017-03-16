@@ -1,0 +1,112 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.HexaPackage.all;
+
+ENTITY SUPERHEXAGON2016 IS
+	PORT(
+		CLK					:	IN	STD_LOGIC;
+		CLR					:	IN	STD_LOGIC;
+		DIF_SWITCH			:	IN	STD_LOGIC_VECTOR(1 DOWNTO 0);
+		Nuevo_juego			:	in	std_logic;
+		Boton_der			:	in	std_logic;
+		Boton_izq			:	in	std_logic;
+		RX						:	IN	STD_LOGIC;
+		
+		CLK_VGA				:	OUT	STD_LOGIC;
+		HSYNC					:	OUT	STD_LOGIC;
+		VSYNC					:	OUT	STD_LOGIC;
+		VGA_SYNC_N			:	OUT	STD_LOGIC;
+		VGA_BLANK_N			:	OUT	STD_LOGIC;
+		ROJO,VERDE,AZUL	:	OUT	STD_LOGIC_VECTOR(7 DOWNTO 0);
+		velocidad_prueba	:	out	unsigned(5 DOWNTO 0);
+		idle_led				: 	out std_logic
+		);
+END ENTITY;
+
+----------------------------------------------------------------------------------------------------------------
+
+COMPONENT PLL IS
+	PORT
+	(
+		areset		: IN STD_LOGIC  := '0';
+		inclk0		: IN STD_LOGIC  := '0';
+		c0				: OUT STD_LOGIC ;
+		c1				: OUT STD_LOGIC 
+	);
+END COMPONENT;
+
+COMPONENT PRUEBA_PLAYER IS
+	PORT(
+		CLK25MHZ				:	IN	STD_LOGIC;
+		CLR					:	IN	STD_LOGIC;
+		DIF_SWITCH			:	IN	STD_LOGIC_VECTOR(1 DOWNTO 0);
+		Nuevo_juego			:	in	std_logic;
+		Boton_der			:	in	std_logic;
+		Boton_izq			:	in	std_logic;
+		
+		CLK_VGA				:	OUT	STD_LOGIC;
+		HSYNC					:	OUT	STD_LOGIC;
+		VSYNC					:	OUT	STD_LOGIC;
+		VGA_SYNC_N			:	OUT	STD_LOGIC;
+		VGA_BLANK_N			:	OUT	STD_LOGIC;
+		ROJO,VERDE,AZUL	:	OUT	STD_LOGIC_VECTOR(7 DOWNTO 0);
+		velocidad_prueba	:	out	unsigned(5 DOWNTO 0);
+		idle_led				: 	out std_logic
+		);
+END COMPONENT;
+
+COMPONENT RS232_RX IS
+	PORT(
+		CLK:			IN	STD_LOGIC;
+		RST:			IN	STD_LOGIC;
+		RX:			IN	STD_LOGIC;
+		
+		DATA_OK:		OUT STD_LOGIC;
+		DATAOUT:		OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+		);
+END COMPONENT;
+
+
+SIGNAL CLK25MHZ,CLKBAUD	:	STD_LOGIC;
+SIGNAL DATA				:	STD_LOGIC_VECTOR(7 DOWNTO 0)
+BEGIN
+
+
+
+PLL1:	PLL PORT MAP(
+		areset		=> CLR,
+		inclk0		=>	CLK,
+		c0				=>	CLK25MHZ
+		c1				=>	CLKBAUD
+	);
+
+
+JUEGO: PRUEBA_PLAYER PORT MAP(
+		CLK25MHZ				=>CLK25MHZ,
+		CLR					=>CLR,
+		DIF_SWITCH			=>DIF_SWITCH,
+		Nuevo_juego			=>Nuevo_juego,
+		Boton_der			=>DATA(0);
+		Boton_izq			=>DATA(1);
+		
+		CLK_VGA				=>CLK_VGA,
+		HSYNC					=>HSYNC,
+		VSYNC					=>VSYNC,
+		VGA_SYNC_N			=>VGA_SYNC_N,
+		VGA_BLANK_N			=>VGA_BLANK_N,
+		ROJO					=>ROJO,
+		VERDE					=>VERDE,
+		AZUL					=>AZUL,
+		velocidad_prueba	=>velocidad_prueba,
+		idle_led				=>idle_led,
+		);
+		
+RECEPTOR_BLUETOOTH: RS232_RX PORT MAP(
+		CLK		=>CLKBAUD
+		RST		=>CLR,
+		RX			=>RX,
+		
+		DATA_OK	=>OPEN
+		DATAOUT	=>DATA
+		);

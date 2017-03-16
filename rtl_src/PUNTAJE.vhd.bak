@@ -1,0 +1,70 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.HexaPackage.all;
+
+ENTITY PUNTAJE IS
+	PORT(
+		ACTUALIZAR	:	IN	STD_LOGIC;
+		GAME_OVER	:	IN	STD_LOGIC;
+		RESET			:	IN	STD_LOGIC;
+		
+		OUT2			:	OUT	STD_LOGIC_VECTOR(6 DOWNTO 0);
+		OUT1			:	OUT	STD_LOGIC_VECTOR(6 DOWNTO 0);
+		OUT0			:	OUT	STD_LOGIC_VECTOR(6 DOWNTO 0)
+	);
+END ENTITY
+
+ARCHITECTURE BEH OF PUNTAJE IS
+
+COMPONENT CONTADOR_BCD is
+	port
+	(
+		-- Input ports
+		Clk	: in  std_logic;		--Reloj
+		EN		: in	std_logic;		--Entrada de habilitación
+		Rst	: in	std_logic;		--
+		
+
+		-- Output ports
+		count	: out std_logic_vector(3 downto 0);
+		ovf	: out std_logic			--Overflow.
+	);
+END COMPONENT;
+
+SIGNAL OVFFRAMES,OVFSEG,OVFSEGX10:	STD_LOGIC;
+SIGNAL COUNTSEG,COUNTSEGX10,COUNTSEGX100:	STD_LOGIC_VECTOR(3 DOWNTO 0);
+
+BEGIN
+CONTFRAMES: CONTADOR generic map(60)
+	port map(
+		Clk	=>CLK25MHZ,
+		EN		=>ACTUALIZAR,
+		Rst	=>RESET,
+		
+		ovf	=>OVFFRAMES
+	);
+
+CONTSEG: CONTADOR_BCD port map(
+		Clk	=>CLK25MHZ,
+		EN		=>OVFFRAMES,
+		Rst	=>RESET,
+		count =>
+		ovf	=>OVFSEG
+	);
+	
+CONTSEGX10: CONTADOR_BCD port map(
+		Clk	=>CLK25MHZ,
+		EN		=>OVFSEG,
+		Rst	=>RESET,
+		count =>
+		ovf	=>OVFSEGX10
+	);
+
+CONTSEGX100: CONTADOR_BCD port map(
+		Clk	=>CLK25MHZ,
+		EN		=>OVFSEGX10,
+		Rst	=>RESET,
+		count =>
+		ovf	=>OPEN
+	);

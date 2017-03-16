@@ -1,0 +1,168 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus Prime License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 16.0.0 Build 211 04/27/2016 SJ Lite Edition
+# Date created = 10:15:16  July 30, 2016
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		PRUEBA_PLAYER_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY SUPERHEXAGON2016
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.0.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "10:15:16  JULY 30, 2016"
+set_global_assignment -name LAST_QUARTUS_VERSION 15.1.0
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_location_assignment PIN_B10 -to AZUL[0]
+set_location_assignment PIN_A10 -to AZUL[1]
+set_location_assignment PIN_C11 -to AZUL[2]
+set_location_assignment PIN_B11 -to AZUL[3]
+set_location_assignment PIN_A11 -to AZUL[4]
+set_location_assignment PIN_C12 -to AZUL[5]
+set_location_assignment PIN_D11 -to AZUL[6]
+set_location_assignment PIN_D12 -to AZUL[7]
+set_location_assignment PIN_Y2 -to CLK
+set_location_assignment PIN_A12 -to CLK_VGA
+set_location_assignment PIN_AB28 -to CLR
+set_location_assignment PIN_Y24 -to DIF_SWITCH[0]
+set_location_assignment PIN_Y23 -to DIF_SWITCH[1]
+set_location_assignment PIN_G13 -to HSYNC
+set_location_assignment PIN_E12 -to ROJO[0]
+set_location_assignment PIN_E11 -to ROJO[1]
+set_location_assignment PIN_D10 -to ROJO[2]
+set_location_assignment PIN_F12 -to ROJO[3]
+set_location_assignment PIN_G10 -to ROJO[4]
+set_location_assignment PIN_J12 -to ROJO[5]
+set_location_assignment PIN_H8 -to ROJO[6]
+set_location_assignment PIN_H10 -to ROJO[7]
+set_location_assignment PIN_G8 -to VERDE[0]
+set_location_assignment PIN_G11 -to VERDE[1]
+set_location_assignment PIN_F8 -to VERDE[2]
+set_location_assignment PIN_H12 -to VERDE[3]
+set_location_assignment PIN_C8 -to VERDE[4]
+set_location_assignment PIN_B8 -to VERDE[5]
+set_location_assignment PIN_F10 -to VERDE[6]
+set_location_assignment PIN_C9 -to VERDE[7]
+set_location_assignment PIN_F11 -to VGA_BLANK_N
+set_location_assignment PIN_C10 -to VGA_SYNC_N
+set_location_assignment PIN_C13 -to VSYNC
+set_global_assignment -name ENABLE_SIGNALTAP ON
+set_global_assignment -name USE_SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name VHDL_FILE rtl_src/SHIFT_REGISTER_RX.vhd
+set_global_assignment -name VHDL_FILE rtl_src/RS232_RX_FSM.vhd
+set_global_assignment -name VHDL_FILE rtl_src/DATA_BUFFER.vhd
+set_global_assignment -name VHDL_FILE pckgs/HexaPackage.vhd
+set_global_assignment -name VHDL_FILE rtl_src/SENOCOSENO.vhd
+set_global_assignment -name VHDL_FILE rtl_src/ROTAR.vhd
+set_global_assignment -name VHDL_FILE rtl_src/PRUEBA_PLAYER.vhd
+set_global_assignment -name VHDL_FILE rtl_src/PAREDES.vhd
+set_global_assignment -name VHDL_FILE rtl_src/LFSR_64.vhd
+set_global_assignment -name VHDL_FILE rtl_src/JUGADOR.vhd
+set_global_assignment -name VHDL_FILE rtl_src/JUEGO_FSM.vhd
+set_global_assignment -name VHDL_FILE rtl_src/GENERADOR_PAREDES.vhd
+set_global_assignment -name VHDL_FILE rtl_src/FF_D_RISING.vhd
+set_global_assignment -name VHDL_FILE rtl_src/FF_AND.vhd
+set_global_assignment -name VHDL_FILE rtl_src/DIFICULTAD.vhd
+set_global_assignment -name VHDL_FILE rtl_src/DIBUJO.vhd
+set_global_assignment -name VHDL_FILE rtl_src/DESPLAZAXYALCENTRO.vhd
+set_global_assignment -name VHDL_FILE rtl_src/DEC_HEX_7SEG.vhd
+set_global_assignment -name VHDL_FILE rtl_src/CONV_HEXAGONAL.vhd
+set_global_assignment -name VHDL_FILE rtl_src/CONTROLADOR_VGA.vhd
+set_global_assignment -name VHDL_FILE rtl_src/CONTROL_GIRO.vhd
+set_global_assignment -name VHDL_FILE rtl_src/CONTADOR.vhd
+set_global_assignment -name VHDL_FILE rtl_src/COMPARA_COORDENADAS.vhd
+set_global_assignment -name VHDL_FILE rtl_src/CIRCULO.vhd
+set_global_assignment -name QIP_FILE IP/PLL.qip
+set_global_assignment -name SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name VHDL_FILE rtl_src/SUPERHEXAGON2016.vhd
+set_global_assignment -name VHDL_FILE rtl_src/RS232_RX.vhd
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_H14 -to RX
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_R24 -to BT_START
+set_location_assignment PIN_M21 -to BT_IZQ
+set_location_assignment PIN_M23 -to BT_DER
+set_global_assignment -name VHDL_FILE rtl_src/CONTADOR_BCD.vhd
+set_global_assignment -name VHDL_FILE rtl_src/PUNTAJE.vhd
+set_location_assignment PIN_H19 -to Leds_Rojo[7]
+set_location_assignment PIN_J19 -to Leds_Rojo[6]
+set_location_assignment PIN_E18 -to Leds_Rojo[5]
+set_location_assignment PIN_F18 -to Leds_Rojo[4]
+set_location_assignment PIN_F21 -to Leds_Rojo[3]
+set_location_assignment PIN_E19 -to Leds_Rojo[2]
+set_location_assignment PIN_F19 -to Leds_Rojo[1]
+set_location_assignment PIN_G19 -to Leds_Rojo[0]
+set_location_assignment PIN_G21 -to Leds_Verde[7]
+set_location_assignment PIN_G22 -to Leds_Verde[6]
+set_location_assignment PIN_G20 -to Leds_Verde[5]
+set_location_assignment PIN_H21 -to Leds_Verde[4]
+set_location_assignment PIN_E24 -to Leds_Verde[3]
+set_location_assignment PIN_E25 -to Leds_Verde[2]
+set_location_assignment PIN_E22 -to Leds_Verde[1]
+set_location_assignment PIN_E21 -to Leds_Verde[0]
+set_location_assignment PIN_H22 -to SEGUNDOS[6]
+set_location_assignment PIN_J22 -to SEGUNDOS[5]
+set_location_assignment PIN_L25 -to SEGUNDOS[4]
+set_location_assignment PIN_L26 -to SEGUNDOS[3]
+set_location_assignment PIN_E17 -to SEGUNDOS[2]
+set_location_assignment PIN_F22 -to SEGUNDOS[1]
+set_location_assignment PIN_G18 -to SEGUNDOS[0]
+set_location_assignment PIN_U24 -to SEGUNDOSX10[6]
+set_location_assignment PIN_U23 -to SEGUNDOSX10[5]
+set_location_assignment PIN_W25 -to SEGUNDOSX10[4]
+set_location_assignment PIN_W22 -to SEGUNDOSX10[3]
+set_location_assignment PIN_W21 -to SEGUNDOSX10[2]
+set_location_assignment PIN_Y22 -to SEGUNDOSX10[1]
+set_location_assignment PIN_M24 -to SEGUNDOSX10[0]
+set_location_assignment PIN_W28 -to SEGUNDOSX100[6]
+set_location_assignment PIN_W27 -to SEGUNDOSX100[5]
+set_location_assignment PIN_Y26 -to SEGUNDOSX100[4]
+set_location_assignment PIN_W26 -to SEGUNDOSX100[3]
+set_location_assignment PIN_Y25 -to SEGUNDOSX100[2]
+set_location_assignment PIN_AA26 -to SEGUNDOSX100[1]
+set_location_assignment PIN_AA25 -to SEGUNDOSX100[0]
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp

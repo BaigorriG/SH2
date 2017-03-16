@@ -1,0 +1,15 @@
+
+State Machine - |SUPERHEXAGON2016|RS232_RX:RECEPTOR_BLUETOOTH|RS232_RX_FSM:RX_FSM1|CS
+Name CS.STOP CS.PARITY CS.DATA CS.START CS.IDLE 
+CS.IDLE 0 0 0 0 0 
+CS.START 0 0 0 1 1 
+CS.DATA 0 0 1 0 1 
+CS.PARITY 0 1 0 0 1 
+CS.STOP 1 0 0 0 1 
+
+State Machine - |SUPERHEXAGON2016|PRUEBA_PLAYER:JUEGO|Juego_Fsm:Juego_Fsm1|current_state
+Name current_state.GAMEOVER current_state.JUGANDO current_state.RESTART current_state.IDLE 
+current_state.IDLE 0 0 0 0 
+current_state.RESTART 0 0 1 1 
+current_state.JUGANDO 0 1 0 1 
+current_state.GAMEOVER 1 0 0 1 

@@ -1,0 +1,92 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity conv_hexagonal is
+	port(
+		clk		: in std_logic;
+		x			: in signed (9 downto 0);
+		y			: in signed (9 downto 0);
+		
+		cuadrante	: out unsigned (2 downto 0);
+		radio			: out unsigned (9 downto 0)
+		);
+end conv_hexagonal;
+
+architecture beh of conv_hexagonal is
+
+constant raiz_int: integer := 1773;
+constant raiz_de_3 : signed (11 downto 0) := to_signed(raiz_int,12);
+
+signal raiz_de_3_x, raiz_de_3_x_neg		: signed (10 downto 0);
+signal raiz_de_3_x_completo				: signed (22 downto 0);
+signal y_extendido, y_negado, x_extendido		: signed (10 downto 0);
+
+signal radio_frac		: signed (11 downto 0);
+
+begin
+----------------------------------------------
+-- multiplicar x por raiz de 3
+--x_extendido 			<= resize(x,11);
+x_extendido 			<= signed(x(9)&x);
+raiz_de_3_x_completo <= x_extendido * raiz_de_3;
+--raiz_de_3_x 			<= resize(raiz_de_3_x_completo,11);
+raiz_de_3_x 			<= signed(raiz_de_3_x_completo(20 downto 10));
+raiz_de_3_x_neg 		<= -raiz_de_3_x;
+
+y_extendido				<= resize(y,11);
+--y_extendido 			<= signed(y(9)&y);
+y_negado 				<=  -y_extendido;
+
+----------------------------------------------
+
+
+----raiz_temp <= (resize(x,11)*raiz_de_3);
+--raiz_de_3_x_completo <= resize(x,11)*raiz_de_3;
+----raiz_de_3_x_completo <= signed(x(9)&x)*raiz_de_3;
+--
+----raiz_de_3_x <= resize(raiz_de_3_x_completo,11);
+--raiz_de_3_x <= signed(raiz_de_3_x_completo(22 downto 12));
+
+
+
+
+
+
+
+
+
+convertir : process (clk, y_extendido, raiz_de_3_x, raiz_de_3_x_neg)
+begin
+	if (rising_edge(clk)) then
+		if (y_extendido > to_signed(0,11)) then
+			if (y_extendido < raiz_de_3_x) then
+				cuadrante <= to_unsigned(0,3);
+				radio_frac <= resize(y_extendido,12) + resize(raiz_de_3_x,12);
+				radio <= unsigned(radio_frac(10 downto 1));
+			elsif (y_extendido < raiz_de_3_x_neg) then
+				cuadrante <= to_unsigned(2,3);
+				radio_frac <= resize(y_extendido,12) + resize(raiz_de_3_x_neg,12);
+				radio <= unsigned(radio_frac(10 downto 1));
+			else
+				cuadrante <= to_unsigned(1,3);
+				radio <= unsigned(y);
+			end if;
+		else
+			if (y_extendido > raiz_de_3_x) then
+				cuadrante <= to_unsigned(3,3);
+				radio_frac <= resize(y_negado,12) + resize(raiz_de_3_x_neg,12);
+				radio <= unsigned(radio_frac(10 downto 1));
+			elsif (y_extendido > raiz_de_3_x_neg) then
+				cuadrante <= to_unsigned(5,3);
+				radio_frac <= resize(y_negado,12) + resize(raiz_de_3_x,12);
+				radio <= unsigned(radio_frac(10 downto 1));
+			else
+				cuadrante <= to_unsigned(4,3);
+				radio <= unsigned(std_logic_vector(-y));
+			end if;
+		end if;
+	end if;
+end process;
+
+end beh;

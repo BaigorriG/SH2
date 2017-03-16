@@ -1,0 +1,241 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "HSYNC",
+					"strict" : false
+				},
+				{
+					"name" : "VSYNC",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_SYNC_N",
+					"strict" : false
+				},
+				{
+					"name" : "VGA_BLANK_N",
+					"strict" : false
+				},
+				{
+					"name" : "ROJO[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ROJO[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ROJO[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ROJO[7]",
+					"strict" : false
+				},
+				{
+					"name" : "VERDE[4]",
+					"strict" : false
+				},
+				{
+					"name" : "VERDE[5]",
+					"strict" : false
+				},
+				{
+					"name" : "VERDE[6]",
+					"strict" : false
+				},
+				{
+					"name" : "VERDE[7]",
+					"strict" : false
+				},
+				{
+					"name" : "AZUL[4]",
+					"strict" : false
+				},
+				{
+					"name" : "AZUL[5]",
+					"strict" : false
+				},
+				{
+					"name" : "AZUL[6]",
+					"strict" : false
+				},
+				{
+					"name" : "AZUL[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Rojo[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Rojo[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Rojo[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Rojo[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Rojo[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Rojo[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Verde[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Verde[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Verde[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Verde[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Verde[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Verde[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Verde[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Leds_Verde[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOS[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOS[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOS[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOS[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOS[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOS[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOS[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX10[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX10[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX10[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX10[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX10[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX10[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX10[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX100[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX100[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX100[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX100[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX100[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX100[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SEGUNDOSX100[6]",
+					"strict" : false
+				},
+				{
+					"name" : "CLR",
+					"strict" : false
+				},
+				{
+					"name" : "DIF_SWITCH[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DIF_SWITCH[1]",
+					"strict" : false
+				},
+				{
+					"name" : "BT_START",
+					"strict" : false
+				},
+				{
+					"name" : "RX",
+					"strict" : false
+				},
+				{
+					"name" : "BT_DER",
+					"strict" : false
+				},
+				{
+					"name" : "BT_IZQ",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
